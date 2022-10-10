@@ -1,17 +1,23 @@
 
 // /*----- constants -----*/
-// Code Options {}
-// clue colors {}
+codeOptions  = {
+    '1': 'white rabbit Obj/',
+    '2': '%git.push**',
+    '3': 'pod2 security=>/',
+    '4': 'SEI/9/26${}',
+    '5': 'access/security/17-'
+}
 
-// /*----- state variables -----*/
-// board
-// option select
+/*----- state variables -----*/
+let board;
+let turn;
+let secretCode;
 
 // /*----- cached elements  -----*/
-// h1 - turns left
-// option buttons
-// enter button
-// replay button
+turnPow = document.querySelector('h1');
+options = document.getElementsByClassName('.answers');
+enterBtn = document.getElementById('#rtn');
+replayBtn = document.getElementById('#plyAgn');
 
 // /*----- event listeners -----*/
 // handle option click
