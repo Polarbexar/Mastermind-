@@ -11,14 +11,18 @@ body {
 }
 button {
     color: black;
-    border-radius: 25%;
+    border-radius: 20%;
     display: flex;
     text-align: center;
+    width: 200px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
-.answers {
-    border: solid;
+#Choices {
     grid-column: 1;
-    grid-row: 2 span;
+    grid-row: 2;
     height: 50px;
     max-width: 200px;
     text-align: center;
@@ -27,7 +31,7 @@ button {
     margin: auto;
 }
 h4 {
-    grid-row: 1;
+    grid-row: 2;
     grid-column: 2;
 }
 #compscreen {
@@ -37,6 +41,8 @@ h4 {
     grid-column: 2;
     grid-row: 5 span;
     margin: 0;
+    display: flex;
+    font-family: 'Share Tech Mono';
 }
 #plyagn {
     visibility: hidden;
