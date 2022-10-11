@@ -5,12 +5,12 @@
 
 // /*----- constants -----*/
 codeOptions = {
-    '1' : 'white',
-    '2' : 'blue',
-    '3' : 'red',
-    '4' : 'gray',
-    '5' : 'yellow',
-    '6' : 'black',
+    'white rabbit Obj' : '0',
+    '-access main program grid' : '1',
+    '%git.push' : '2',
+    'pod2 security=>/' : '3',
+    'SEI/9/26${}' : '4',
+    'access/security/17-' : '5',
 };
 // let result;
 let secretCode;
@@ -18,7 +18,7 @@ let secretCode;
 function getSecretCode() {
     secretCode = [];
     for (let i=0; i<4; i++){
-        secretCode.push(codeOptions[Math.floor(Math.random() * 7)]);
+        secretCode.push(codeOptions[Math.floor(Math.random() * 6)]);
     }
     console.log(secretCode); 
 }
@@ -64,7 +64,6 @@ document.getElementById('plyAgn').addEventListener('click', init);
 init ();
 
 function init() {
-    board = [null, null, null, null]
     turn = 1;
     winner = false;
     getSecretCode()
@@ -76,6 +75,15 @@ function handleChoice(evt) {
     console.log(button);
     render()
 }
+// function renderBoard() {
+//     board.forEach(function(sqVal, idx) {
+//       const cellEl = document.getElementById.innerText(`${idx}`);
+//       cellEl.style.backgroundColor = players[sqVal];
+//     });
+//   }
+
+
+
 function handleCheck() {
     turn++;
     colorCheck();
@@ -96,70 +104,63 @@ function getWinner() {
         && answer3El === secretCode[2] && answer4El === secretCode[3]) {
             return winner = true;
         }
-    }
-    function colorCheck() {
-        if (answer1El.innerText == secretCode[0]) {
-            answer1El.style.color = 'green';
-        }
-        if (answer1El.innerText == secretCode[1] || secretCode[2] || secretCode[3]) {
-            answer1El.style.color = 'yellow';
-        }
-        if (answer2El.innerText == secretCode[1]) {
-            answer1El.style.color = 'green';
-        }
-        if (answer2El.innerText == secretCode[0] || secretCode[2] || secretCode[3]) {
-            answer1El.style.color = 'yellow';
-        }
-        if (answer3El.innerText == secretCode[2]) {
-            answer1El.style.color = 'green';
-        }
-        if (answer3El.innerText == secretCode[0] || secretCode[1] || secretCode[3]) {
-            answer1El.style.color = 'yellow';
-        }
-        if (answer4El.innerText == secretCode[3]) {
-            answer1El.style.color = 'green';
-        }
-        if (answer4El.innerText == secretCode[0] || secretCode[1] || secretCode[2]) {
-            answer1El.style.color = 'yellow';
-        }
-        if (answer1El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
-            answer1El.style.color = 'black'; 
-        }
-        if (answer2El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
-            answer1El.style.color = 'black'; 
-        }
-        if (answer3El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
-            answer1El.style.color = 'black'; 
-        }
-        if (answer4El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
-            answer1El.style.color = 'black'; 
-        }
-    }
-    function renderMessage() { 
-        if (winner === true) {
-            turnPow.innerText = "You Saved The Park";
-        } else if (turn == 1) {
-            turnPow.innerText = '99% Power';
-        } else if (turn == 2) {
-            turnPow.innerText = "75% Power";
-        } else if (turn == 3) {
-            turnPow.innerText = "50% Power";
-        } else if (turn == 4) {
-            turnPow.innerText = "25% Power";
-            turnPow.style.color = 'yellow';
-        } else if (turn == 5) { 
-            turnPow.innerText = "Shutting Down";
-            turnPow.style.color = 'red';
-        }
-        
+}
+function colorCheck() {
+if (answer1El.innerText == secretCode[0]) {
+    answer1El.style.color = 'green';
+}
+if (answer1El.innerText == secretCode[1] || secretCode[2] || secretCode[3]) {
+    answer1El.style.color = 'yellow';
+}
+if (answer2El.innerText == secretCode[1]) {
+    answer1El.style.color = 'green';
+}
+if (answer2El.innerText == secretCode[0] || secretCode[2] || secretCode[3]) {
+    answer1El.style.color = 'yellow';
+}
+if (answer3El.innerText == secretCode[2]) {
+    answer1El.style.color = 'green';
+}
+if (answer3El.innerText == secretCode[0] || secretCode[1] || secretCode[3]) {
+    answer1El.style.color = 'yellow';
+}
+if (answer4El.innerText == secretCode[3]) {
+    answer1El.style.color = 'green';
+}
+if (answer4El.innerText == secretCode[0] || secretCode[1] || secretCode[2]) {
+    answer1El.style.color = 'yellow';
+}
+if (answer1El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
+    answer1El.style.color = 'black'; 
+}
+if (answer2El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
+    answer1El.style.color = 'black'; 
+}
+if (answer3El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
+    answer1El.style.color = 'black'; 
+}
+if (answer4El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
+    answer1El.style.color = 'black'; 
+}
+}
+function renderMessage() { 
+    if (winner === true) {
+        turnPow.innerText = "You Saved The Park";
+    } else if (turn == 1) {
+        turnPow.innerText = '99% Power';
+    } else if (turn == 2) {
+        turnPow.innerText = "75% Power";
+    } else if (turn == 3) {
+        turnPow.innerText = "50% Power";
+    } else if (turn == 4) {
+        turnPow.innerText = "25% Power";
+        turnPow.style.color = 'yellow';
+    } else if (turn == 5) { 
+        turnPow.innerText = "Shutting Down";
+        turnPow.style.color = 'red';
     }
     
-// function renderBoard() {
-//     board.forEach(function(sqVal, idx) {
-    //         const answerEl = document.getElementById('Choices');
-    //         answerEl.innerText = 
-    //     });
-    // }
+}
 function renderReplay() {
     replayBtn.style.visibility = winner ? 'visible' : 'hidden';
     replayBtn.style.visibility = turn == 5 ? 'visible' : 'hidden';

@@ -57,3 +57,7 @@ h4 {
     align-items: center;
     margin: auto;
 }
+#answerGrid {
+    grid-row: 3;
+    grid-column: 2;
+}
