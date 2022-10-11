@@ -38,6 +38,7 @@ h4 {
     color: blue;
     background-color: black;
     border: 60px solid tan;
+    border-radius: 4%;
     grid-column: 2;
     grid-row: 5 span;
     margin: 0;
