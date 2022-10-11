@@ -8,69 +8,94 @@ codeOptions  = [document.getElementById('option-1').innerText, document.getEleme
 let board;
 let turn;
 let secretCode;
+let choices;
 let button;
+let winner; 
 // /*----- cached elements  -----*/
 const turnPow = document.querySelector('h1');
-const options = document.querySelectorAll('.option');
 const enterBtn = document.getElementById('rtn');
 const replayBtn = document.getElementById('plyAgn');
-const boardEls = document.querySelectorAll('divs');
+const answer1El = document.getElementById('answer-1')
+const answer2El = document.getElementById('answer-2')
+const answer3El = document.getElementById('answer-3')
+const answer4El = document.getElementById('answer-4')
+const allAnswers = document.getElementById('Choices')
 
 // // /*----- event listeners -----*/
 document.getElementById('Choices').addEventListener('click', handleChoice);
-// document.getElementById('rtn').addEventListener('click', handleCheck);
+document.getElementById('rtn').addEventListener('click', handleCheck);
 document.getElementById('plyAgn').addEventListener('click', init);
 
 // /*----- functions -----*/
 init ();
 
 function init() {
-    board = [document.getElementById('answer-1').innerText = null, document.getElementById('answer-2'), document.getElementById('answer-3'), document.getElementById('answer-4')];
+    board = [0,0,0,0];
     turn = 1;
-    winner = null;
+    winner = false;
     getSecretCode()
     render();
 
 };
+// handle clicks (3)
+function handleChoice(evt) {
+    choices = [];
+    button = evt.target.innerText;
+    // answer1El.innerText = button;
+    render()
+}
+function handleCheck() {
+    turn++;
+    getWinner();
+    render();
+}
 function render() {
-    // renderBoard();
-    // renderMessage();
+    renderBoard();
+    renderMessage();
     renderReplay();
 }
+function renderBoard() {
+    choices = [];
+    answer1El.innerText = button;
+    choices.push[button]
+}
+function getWinner() {
+    if (answer1El.innerText === secretCode[0] && answer2El.innerText === secretCode[1] 
+        && answer3El === secretCode[2] && answer4El === secretCode[3]) {
+        return winner = true;
+    } else {
+        return winner = false;
+    }
+}
+function renderMessage() { 
+    if (winner === true) {
+    turnPow.innerText = "You Saved The Park";
+    } else if (turn == 1) {
+    turnPow.innerText = '99% Power';
+    } else if (turn == 2) {
+    turnPow.innerText = "75% Power";
+    } else if (turn == 3) {
+    turnPow.innerText = "50% Power";
+    } else if (turn == 4) {
+    turnPow.innerText = "25% Power";
+    turnPow.innerText.color = 'yellow';
+
+    } else if (turn == 5) { 
+    turnPow.innerText = "Shutting Down";
+    }
+
+}
+
+// - show selected options
 
 // // generate secret code order
 function getSecretCode() {
     secretCode = [];
-  for (let i=0; i<4; i++){
-    secretCode.push(codeOptions[Math.floor(Math.random() * 5)]);
+    for (let i=0; i<4; i++){
+        secretCode.push(codeOptions[Math.floor(Math.random() * 5)]);
+    }
+    console.log(secretCode); 
 }
-console.log(secretCode); 
-}
-
-
-// // handle clicks (3)
-function handleChoice(evt) {
-   const button = evt.target.innerText;
-   document.getElementById('answer-1').innerText = button;
-   if (document.getElementById('answer-1').innerText == button)
-   return;
-}
-//    document.getElementById('answer-1').innerText = button;
-// console.log(button)
-//     if ( ||
-//         winner)
-//     return;
-
-// function renderBoard() {
-//     board.forEach(function(idx) {
-//       const cellEl = document.getElementById(`answer-${idx}`);
-//       cellEl.css.innerHTML = button;
-//     });
-
-// function getWinner() {
-//     if ()
-// }
-    // - show selected options
 
 // } 
 // function handleCheck() {
@@ -88,6 +113,9 @@ function handleChoice(evt) {
 // }
 function renderReplay() {
     replayBtn.style.visibility = winner ? 'visible' : 'hidden';
+    replayBtn.style.visibility = turn == 5 ? 'visible' : 'hidden';
+    allAnswers.style.visibility = turn == 5 ? 'hidden' : 'visible';
+    enterBtn.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
 }
 //     // - re-init on replay
     
