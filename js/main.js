@@ -5,45 +5,21 @@
 
 // /*----- constants -----*/
 codeOptions = {
-    'white rabbit Obj' : '0',
-    '-access main program grid' : '1',
-    '%git.push' : '2',
-    'pod2 security=>/' : '3',
-    'SEI/9/26${}' : '4',
-    'access/security/17-' : '5',
+   '0' : 'white rabbit Obj',
+   '1' :'-access main program grid',
+   '2' : '%git.push',
+   '3' :  'pod2 security=>/',
+   '4' : 'SEI/9/26${}',
+   '5' : 'access/security/17-',
 };
 // let result;
-let secretCode;
 
-function getSecretCode() {
-    secretCode = [];
-    for (let i=0; i<4; i++){
-        secretCode.push(codeOptions[Math.floor(Math.random() * 6)]);
-    }
-    console.log(secretCode); 
-}
-// getSecretCode(codeOptions, 4);
-
-// function getSecretCode(sourceArray, neededElements) {
-//     let secretCode = [];
-//     for (let i = 0; i < neededElements; i++) {
-//         secretCode.push(sourceArray[Math.floor(Math.random()*sourceArray.length)]);
-//     }
-//     return secretCode;
-    
-// }
-
-
-// const getRnd = (a, n) => new Array(n).fill(null).map(() => a[Math.floor(Math.random() * a.length)]);
-
-
-// const random_code = Math.floor(Math.random() * 4);
-// let randomObject = codeOptions2[Math.floor(Math.random() * 4)];
 /*----- state variables -----*/
 let board;
 let turn;
 let button;
 let winner; 
+let secretCode;
 
 // /*----- cached elements  -----*/
 const turnPow = document.querySelector('h1');
@@ -59,7 +35,7 @@ const allAnswers = document.getElementById('Choices');
 document.getElementById('Choices').addEventListener('click', handleChoice);
 document.getElementById('rtn').addEventListener('click', handleCheck);
 document.getElementById('plyAgn').addEventListener('click', init);
-
+// document.getElementById('answerGrid').addEventListener('click')
 // /*----- functions -----*/
 init ();
 
@@ -74,6 +50,13 @@ function handleChoice(evt) {
     button = evt.target.id.replace('option-','');
     console.log(button);
     render()
+}
+function getSecretCode() {
+    secretCode = [];
+    for (let i=0; i<4; i++){
+        secretCode.push(codeOptions[Math.floor(Math.random() * 6)]);
+    }
+    console.log(secretCode); 
 }
 // function renderBoard() {
 //     board.forEach(function(sqVal, idx) {
