@@ -1,41 +1,37 @@
-// Previous Code Array
-// codeOptions  = [document.getElementById('option-1').innerText, document.getElementById('option-2').innerText,
-//    document.getElementById('option-3').innerText, document.getElementById('option-4').innerText, 
-//    document.getElementById('option-5').innerText, document.getElementById('option-6').innerText];
-
 // /*----- constants -----*/
 codeOptions = {
-   '0' : 'white rabbit Obj',
+   '0' : 'white rabbit Obj/',
    '1' :'-access main program grid',
-   '2' : '%git.push',
+   '2' : '%git.push**',
    '3' :  'pod2 security=>/',
    '4' : 'SEI/9/26${}',
    '5' : 'access/security/17-',
 };
-// let result;
+codeAnswers = ['', '', '' , '']
 
 /*----- state variables -----*/
-let board;
 let turn;
-let button;
 let winner; 
 let secretCode;
+let choice;
+let answer;
 
 // /*----- cached elements  -----*/
 const turnPow = document.querySelector('h1');
 const enterBtn = document.getElementById('rtn');
 const replayBtn = document.getElementById('plyAgn');
+const answer0El = document.getElementById('answer-0');
 const answer1El = document.getElementById('answer-1');
 const answer2El = document.getElementById('answer-2');
 const answer3El = document.getElementById('answer-3');
-const answer4El = document.getElementById('answer-4');
 const allAnswers = document.getElementById('Choices');
 
 // // /*----- event listeners -----*/
 document.getElementById('Choices').addEventListener('click', handleChoice);
 document.getElementById('rtn').addEventListener('click', handleCheck);
 document.getElementById('plyAgn').addEventListener('click', init);
-// document.getElementById('answerGrid').addEventListener('click')
+document.getElementById('answerGrid').addEventListener('click', handleAnswer)
+
 // /*----- functions -----*/
 init ();
 
@@ -45,11 +41,36 @@ function init() {
     getSecretCode()
     render();
 };
-// handle clicks (3)
+function handleAnswer(evt) {
+    answer = evt.target
+}
+
 function handleChoice(evt) {
-    button = evt.target.id.replace('option-','');
-    console.log(button);
+    choice = evt.target.innerText;
+    answer.innerText = choice;
     render()
+    }
+
+function handleCheck() {
+    turn++;
+    buildArray()
+    colorCheck1();
+    colorCheck2();
+    colorCheck3();
+    colorCheck4();
+    getWinner();
+    render();
+}
+function render() {
+    renderMessage();
+    renderReplay();
+}
+function buildArray() {
+    codeAnswers.unshift(answer0El.innerText);
+    codeAnswers.splice(1, 2, answer1El.innerText);
+    codeAnswers.splice(2, 1, answer2El.innerText);
+    codeAnswers.splice(3, 1, answer3El.innerText)
+    console.log(codeAnswers)
 }
 function getSecretCode() {
     secretCode = [];
@@ -58,132 +79,94 @@ function getSecretCode() {
     }
     console.log(secretCode); 
 }
-// function renderBoard() {
-//     board.forEach(function(sqVal, idx) {
-//       const cellEl = document.getElementById.innerText(`${idx}`);
-//       cellEl.style.backgroundColor = players[sqVal];
-//     });
-//   }
 
-
-
-function handleCheck() {
-    turn++;
-    colorCheck();
-    getWinner();
-    render();
-}
-function render() {
-    renderBoard();
-    renderMessage();
-    renderReplay();
-}
-function renderBoard() {
-    answer1El.innerText = button;
-    
-}
 function getWinner() {
-    if (answer1El.innerText === secretCode[0] && answer2El.innerText === secretCode[1] 
-        && answer3El === secretCode[2] && answer4El === secretCode[3]) {
-            return winner = true;
-        }
+    // for (var i = 0; i < secretCode.length; i++)
+    //     if (codeAnswers[i] === secretCode[i])
+    //         return winner = true;
+// secretCode.length === codeAnswers.length &&
+// secretCode.every(function (element, index) {
+//   // compare if the element matches in the same index
+//   if (element === codeAnswers[index]);
+//   return winner = true
+// });
+if (secretCode[0] === codeAnswers[0]
+    && secretCode[1] === codeAnswers[1]
+    && secretCode[2] === codeAnswers[2]
+    && secretCode[3] === codeAnswers[3])
+    return winner = true;
 }
-function colorCheck() {
-if (answer1El.innerText == secretCode[0]) {
-    answer1El.style.color = 'green';
+
+function colorCheck1() {
+    if (codeAnswers[0] === secretCode[0]) {
+    answer0El.style.color = 'green'
+    }
+    else if ( codeAnswers[0] === secretCode[1] || secretCode[2] || secretCode[3]) {
+        answer0El.style.color = 'yellow'
+    }
+    else {(codeAnswers[0] !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) 
+        answer0El.style.color = 'purple'
+    }
 }
-if (answer1El.innerText == secretCode[1] || secretCode[2] || secretCode[3]) {
-    answer1El.style.color = 'yellow';
+function colorCheck2() {
+    if (codeAnswers[1] === secretCode[1]) {
+    answer1El.style.color = 'green'
+    }
+    else if (codeAnswers[1] === secretCode[0] || secretCode[2] || secretCode[3]) {
+        answer1El.style.color = 'yellow'
+    }
+    else if (codeAnswers[1] !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
+        answer1El.style.color = 'purple'
+    }
+} 
+function colorCheck3() {
+    if (codeAnswers[2] === secretCode[2]) {
+    answer2El.style.color = 'green'
+    }
+    else if (codeAnswers[2] === secretCode[0] || secretCode[1] || secretCode[3]) {
+    answer2El.style.color = 'yellow'
+    }
+    else if (codeAnswers[2] !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
+    answer2El.style.color = 'purple';
+    }
+} 
+function colorCheck4() {
+    if (codeAnswers[3] === secretCode[3]) {
+        answer3El.style.color = 'green'
+    }
+    else if (codeAnswers[3] === secretCode[0] || secretCode[1] || secretCode[2]) {
+        answer3El.style.color = 'yellow'
+    }
+    else {(codeAnswers[3] !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) 
+        answer3El.style.color = 'purple';
+    }
 }
-if (answer2El.innerText == secretCode[1]) {
-    answer1El.style.color = 'green';
-}
-if (answer2El.innerText == secretCode[0] || secretCode[2] || secretCode[3]) {
-    answer1El.style.color = 'yellow';
-}
-if (answer3El.innerText == secretCode[2]) {
-    answer1El.style.color = 'green';
-}
-if (answer3El.innerText == secretCode[0] || secretCode[1] || secretCode[3]) {
-    answer1El.style.color = 'yellow';
-}
-if (answer4El.innerText == secretCode[3]) {
-    answer1El.style.color = 'green';
-}
-if (answer4El.innerText == secretCode[0] || secretCode[1] || secretCode[2]) {
-    answer1El.style.color = 'yellow';
-}
-if (answer1El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
-    answer1El.style.color = 'black'; 
-}
-if (answer2El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
-    answer1El.style.color = 'black'; 
-}
-if (answer3El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
-    answer1El.style.color = 'black'; 
-}
-if (answer4El.innerText !== secretCode[0] || secretCode[1] || secretCode[2] || secretCode[3]) {
-    answer1El.style.color = 'black'; 
-}
-}
+
+
 function renderMessage() { 
     if (winner === true) {
         turnPow.innerText = "You Saved The Park";
-    } else if (turn == 1) {
+        turnPow.style.css = 'blue';
+    } else if (turn === 1) {
         turnPow.innerText = '99% Power';
-    } else if (turn == 2) {
+        turnPow.style.color = 'blue';
+    } else if (turn === 2) {
         turnPow.innerText = "75% Power";
-    } else if (turn == 3) {
+    } else if (turn === 3) {
         turnPow.innerText = "50% Power";
-    } else if (turn == 4) {
+    } else if (turn === 4) {
         turnPow.innerText = "25% Power";
         turnPow.style.color = 'yellow';
-    } else if (turn == 5) { 
+    } else if (turn === 5) { 
         turnPow.innerText = "Shutting Down";
         turnPow.style.color = 'red';
     }
     
 }
 function renderReplay() {
-    replayBtn.style.visibility = winner ? 'visible' : 'hidden';
-    replayBtn.style.visibility = turn == 5 ? 'visible' : 'hidden';
+    replayBtn.style.visibility = turn === 5 ? 'visible' : 'hidden';
     allAnswers.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
     enterBtn.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
+    answerGrid.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
+
 }
-    //     // - re-init on replay
-    
-    
-    
-    
-    // Ice-box:
-    // Play music
-    // Play video on win/lose
-    // opening message of rules/theme situatio
-    
-                
-                
-                
-                
-                
-                
-                
-                
-                // // generate secret code order - Previous getSecretCode
-                
-                
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
