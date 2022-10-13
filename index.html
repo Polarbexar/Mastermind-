@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +18,13 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
+    <section class="splash">
+    <h2 class="fade-in" id="title">Mastermind</h2>
+    <p class="pfade-in" id="story">Help! A programmer has shut down the park!<br> 
+        We dont know what code he used to execute the command.<br>
+        We need you to restore power before the dino's get loose.......</p>
+    </section>
+
     <section id="compscreen">
         <div id="monitor">
             <div id="bezel">
@@ -23,10 +33,10 @@
                 <h3><a href="#" data-replace="Ingen"><span><strong>I</strong>ngen</span></a></h3>
                 <h1>99% power</h1>
                 <section id="answerGrid">
-                    <div id="answer-0">This</div>
-                    <div id="answer-1">is</div>
-                    <div id="answer-2">my</div>
-                    <div id="answer-3">answer</div>
+                    <div id="answer-0"></div>
+                    <div id="answer-1"></div>
+                    <div id="answer-2"></div>
+                    <div id="answer-3"></div>
                 </section>
                 <section id="Choices" style="pointer-events: auto;"> 
                     <button id="option-0">white rabbit Obj/</button>

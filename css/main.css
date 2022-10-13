@@ -3,6 +3,7 @@
 }
 body {
     height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +25,8 @@ body {
     box-shadow: 10px 20px 40px #01411C;
     font-family: 'VT323';
     margin-left: 80px;
+    z-index: 3;
+    position: relative;
     /* visibility: hidden; */
 }
 h3 {
@@ -36,11 +39,62 @@ h1 {
     margin-bottom: 20px;
     font-weight: 900;
 }
+.splash {
+    z-index: 8;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+.splash.displayNone {
+    z-index: 8;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    top: 0;
+    left: 0;
+    text-align: center;
+    opacity: 0;
+    z-index: -10
+}
+#title {
+    font-family: 'bungee shade';
+    font-size: 15vmin;
+    line-height: 20vh;
+    color: #FFD700;
+}
+
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 7s ease-in forwards; 
+}
+.pfade-in {
+    opacity: 0;
+    animation: fadeIn 13s ease-in forwards; 
+}
+
+#story {
+    margin: auto;
+    font-size: 30px;
+}
 
 #Choices {
     font-size: 15px;
     font-family: 'VT323';
     /* visibility: hidden; */
+}
+#answerGrid {
+    height: 130px;
 }
 #answerGrid > div {
     border: 2px solid red;
@@ -53,22 +107,26 @@ h1 {
     margin-bottom: 40px;
     justify-content: center;
     transform: scale(0.7);
+    position: relative;
     /* visibility: hidden; */
 }
-/* div:hover {
+#answerGrid > div:hover {
     background-color: green;
-    color: white; */
+    color: white;
+    z-index: 8;
+}
 #rtn {
 margin-top: 50px;
 width: 90px;
 height: 40px;
 font-size: 20px;
 justify-content: center;
-/* visibility: hidden; */
+
 }
 #plyAgn {
 margin-top: 60px;
 visibility: hidden;
+z-index: 8;
 } 
 
 h4 {
@@ -155,10 +213,11 @@ transform: translate3d(-200%, 0, 0);
 content: " ";
 display: block;
 position: absolute;
-top: 200px;
-left: 440px;
-bottom: 200px;
-right: 440px;
+/* 200 440 */
+top: 0px;
+left: 0px;
+bottom: 0px;
+right: 0px;
 background: linear-gradient(
     to bottom,
     rgba(18, 16, 16, 0) 50%,
@@ -178,10 +237,10 @@ text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217p
 }
 
 .scanline {
-right: 420px;
-width: 50%;
+right: 10px;
+width: 100%;
 height: 100px;
-z-index: 8;
+z-index: 0;
 background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 0%,

@@ -28,6 +28,7 @@ const answer3El = document.getElementById('answer-3');
 const allAnswers = document.getElementById('Choices');
 const fadeEl = document.getElementById('compscreen');
 const endMessage = document.getElementById('instructions');
+const splashEl = document.querySelector('.splash');
 
 // // /*----- event listeners -----*/
 document.getElementById('Choices').addEventListener('click', handleChoice);
@@ -44,9 +45,15 @@ function init() {
     playerGuess = ['', '', '', ''];
     currentDiv = 0;
     choice = 0;
+    setTimeout(() => {
+        splashEl.classList.add('displayNone');
+    
+    }, 15000);
     getSecretCode();
     render();
-};
+    
+}
+
 function updateDiv(evt) {
     currentDiv = evt.target.id[7];
     console.log(evt.target.id[7]);
@@ -73,7 +80,9 @@ function setNextTurn() {
         setTimeout(() => {
             let div = document.getElementById(`answer-${idx}`)
             div.innerText= '';
-          }, 5000);
+            div.style.color = 'white';
+            playerGuess = ['', '', '', ''];
+        }, 5000);
     }) 
 }
 
@@ -85,12 +94,12 @@ function render() {
 
 function updateDivs() {
     playerGuess.forEach(function(num, idx) {
-    let currentDiv =  document.getElementById(`answer-${idx}`)
-    if (num === '') {
-        currentDiv.innerText = '';
-    } else {
-        currentDiv.innerText = codeOptions[num];
-    }
+        let currentDiv =  document.getElementById(`answer-${idx}`)
+        if (num === '') {
+            currentDiv.innerText = '';
+        } else {
+            currentDiv.innerText = codeOptions[num];
+        }
     });
 }
 
@@ -125,7 +134,7 @@ function getWinner() {
    feedbackArray.forEach(function(val, idx) {
     console.log(val)
        if (val === '') {
-           feedbackArray[idx] = 'purple';
+           feedbackArray[idx] = 'black';
            codeCopy[codeCopy.indexOf(parseInt(val))] = 8;
         }
     }); 
@@ -176,12 +185,12 @@ function renderMessage() {
         turnPow.innerText = "Shutting Down";
         endMessage.innerText = '"I hate this hacker crap!" Your mother weeps for your intelligence. You could have saved everyone. But, hey, everyone has a bad day every now and then.........This will, uh, probably be your last though';
         renderFade();
-        renderRestart()
+        renderRestart
     }
 }
 
 function renderEndGame() {
-    // replayBtn.style.visibility = 'hidden';
+    replayBtn.style.visibility =  winner || turn === 5? 'hidden': 'visible';
     allAnswers.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
     enterBtn.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
     answerGrid.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
