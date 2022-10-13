@@ -1,63 +1,96 @@
 * {
     box-sizing: border-box;
-    height: 100%;
-    width: 100%;
 }
 body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px 100px 100px 100px 1fr;
-    justify-content: center;
+    height: 100vh;
+    /* background-image: url(https://i.redd.it/rgtx5bct3so11.jpg);
+    background-size: cover;
+    background-position: center; */
 }
-button {
+#compscreen{
+    background-image: url(https://th.bing.com/th/id/R.df84d0e7c378fc804ee71ab344da073a?rik=LdtVDYF%2byf3bZQ&riu=http%3a%2f%2fi.imgur.com%2fGRwTNJi.png&ehk=sc82uCsTaZgS7Ix%2bYwFXpxFb%2bOF2mzsyS%2bed3JqzE3E%3d&risl=&pid=ImgRaw&r=0);
     color: black;
+    width: 750px;
+    height: 500px;
+    background-position: center center;;
+    border: 40px solid black;
+    position: absolute;
+    margin: auto;
+
+}
+
+
+/* bezel png */
+https://th.bing.com/th/id/R.df84d0e7c378fc804ee71ab344da073a?rik=LdtVDYF%2byf3bZQ&riu=http%3a%2f%2fi.imgur.com%2fGRwTNJi.png&ehk=sc82uCsTaZgS7Ix%2bYwFXpxFb%2bOF2mzsyS%2bed3JqzE3E%3d&risl=&pid=ImgRaw&r=0
+/* control room */
+https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/UD7CEz6/center-command-control-room-security-aviation-space_4jkdxeid_thumbnail-180_01.jpg
+/* 2nd control room background */
+https://i.redd.it/rgtx5bct3so11.jpg
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr; */
+    /* grid-template-rows: 100px 100px 100px 100px 1fr; */
+    /* justify-content: center; */
+    /* color: blue;
+    background-color: black;
+    border: 60px solid tan;
+    border-radius: 4%; */
+    /* grid-column: 2; */
+    /* grid-row: 5 span; */
+    /* margin: 0; */
+    /* display: flex; */
+    /* font-family: 'Share Tech Mono'; */
+
+h1 {
+    
+}
+
+button {
+    /* color: black;
     border-radius: 20%;
     display: flex;
     text-align: center;
-    width: 200px;
+    width: 50px;
     height: 50px;
     justify-content: center;
     align-items: center;
-    margin: auto;
+    margin: auto; */
 }
 #Choices {
-    grid-column: 1;
-    grid-row: 2;
+    /* grid-column: 1; */
+    /* grid-row: 2;
     height: 50px;
-    max-width: 200px;
+    width: 50px;
     text-align: center;
     align-items: center;
-    justify-content: center;
-    margin: auto;
+    /* justify-content: center; */
+    /* margin: auto; */
 }
 h4 {
-    grid-row: 2;
-    grid-column: 2;
 }
-#compscreen {
-    color: blue;
-    background-color: black;
-    border: 60px solid tan;
-    border-radius: 4%;
-    grid-column: 2;
-    grid-row: 5 span;
-    margin: 0;
-    display: flex;
-    font-family: 'Share Tech Mono';
+    /* grid-row: 2; */
+    /* grid-column: 2; */
+    /* height: 3vmin;
 }
-#plyagn {
-    visibility: hidden;
-}
-#rtn {
-    grid-row: 5;
-    grid-column: 1;
-    width: 100px;
+/* #rtn {
+    /* grid-row: 1; */
+    /* grid-column: 1; */
+    /* width: 50px;
     height: 50px;
     justify-content: center;
     align-items: center;
     margin: auto;
-}
+} */
 #answerGrid > div {
     border: 2px solid red;
+    display: inline-flex;
+    width: 50px;
+}
+div {
+  
+}
+#rtn {
+   
+}
+#plyAgn {
     
 }
