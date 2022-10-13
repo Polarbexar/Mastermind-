@@ -3,94 +3,215 @@
 }
 body {
     height: 100vh;
-    /* background-image: url(https://i.redd.it/rgtx5bct3so11.jpg);
-    background-size: cover;
-    background-position: center; */
-}
-#compscreen{
-    background-image: url(https://th.bing.com/th/id/R.df84d0e7c378fc804ee71ab344da073a?rik=LdtVDYF%2byf3bZQ&riu=http%3a%2f%2fi.imgur.com%2fGRwTNJi.png&ehk=sc82uCsTaZgS7Ix%2bYwFXpxFb%2bOF2mzsyS%2bed3JqzE3E%3d&risl=&pid=ImgRaw&r=0);
-    color: black;
-    width: 750px;
-    height: 500px;
-    background-position: center center;;
-    border: 40px solid black;
-    position: absolute;
-    margin: auto;
-
-}
-
-
-/* bezel png */
-https://th.bing.com/th/id/R.df84d0e7c378fc804ee71ab344da073a?rik=LdtVDYF%2byf3bZQ&riu=http%3a%2f%2fi.imgur.com%2fGRwTNJi.png&ehk=sc82uCsTaZgS7Ix%2bYwFXpxFb%2bOF2mzsyS%2bed3JqzE3E%3d&risl=&pid=ImgRaw&r=0
-/* control room */
-https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/UD7CEz6/center-command-control-room-security-aviation-space_4jkdxeid_thumbnail-180_01.jpg
-/* 2nd control room background */
-https://i.redd.it/rgtx5bct3so11.jpg
-    /* display: grid; */
-    /* grid-template-columns: 1fr 1fr; */
-    /* grid-template-rows: 100px 100px 100px 100px 1fr; */
-    /* justify-content: center; */
-    /* color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black;
-    border: 60px solid tan;
-    border-radius: 4%; */
-    /* grid-column: 2; */
-    /* grid-row: 5 span; */
-    /* margin: 0; */
-    /* display: flex; */
-    /* font-family: 'Share Tech Mono'; */
+}
+#compscreen > *{
+    background-color: #01411C;
+    color: white;
+    width: 1000px;
+    height: 700px;
+    border: 60px solid gray;
+    border-radius: 2%;
+    padding: 15px;
+    background-clip: content-box;
+    box-shadow: inset 0 0 0 10px darkgray;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 10px 20px 40px #01411C;
+    font-family: 'VT323';
+    margin-left: 80px;
+    /* visibility: hidden; */
+}
+h3 {
+    text-align: right;
+}
 
 h1 {
-    
+    font-size: 100px;
+    margin: 0;
+    margin-bottom: 20px;
+    font-weight: 900;
 }
 
-button {
-    /* color: black;
-    border-radius: 20%;
-    display: flex;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
-    margin: auto; */
-}
 #Choices {
-    /* grid-column: 1; */
-    /* grid-row: 2;
-    height: 50px;
-    width: 50px;
-    text-align: center;
-    align-items: center;
-    /* justify-content: center; */
-    /* margin: auto; */
+    font-size: 15px;
+    font-family: 'VT323';
+    /* visibility: hidden; */
 }
-h4 {
-}
-    /* grid-row: 2; */
-    /* grid-column: 2; */
-    /* height: 3vmin;
-}
-/* #rtn {
-    /* grid-row: 1; */
-    /* grid-column: 1; */
-    /* width: 50px;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-} */
 #answerGrid > div {
     border: 2px solid red;
     display: inline-flex;
-    width: 50px;
+    width: 170px;
+    height: 50px; 
+    font-size: 25px;
+    margin: 10px 10px 10px 10px;
+    text-align: center;
+    margin-bottom: 40px;
+    justify-content: center;
+    transform: scale(0.7);
+    /* visibility: hidden; */
 }
-div {
-  
-}
+/* div:hover {
+    background-color: green;
+    color: white; */
 #rtn {
-   
+margin-top: 50px;
+width: 90px;
+height: 40px;
+font-size: 20px;
+justify-content: center;
+/* visibility: hidden; */
 }
 #plyAgn {
-    
+margin-top: 60px;
+visibility: hidden;
+} 
+
+h4 {
+    font-size: 22px;
+}
+
+#green {
+    color: green;
+}
+
+#yellow {
+    color: yellow;
+}
+
+#black {
+    color: black;
+}
+p {
+    color: white;
+    visibility: visible;
+    margin-left: 600px;
+}
+
+/* /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+a {
+overflow: hidden;
+position: relative;
+display: inline-block;
+}
+a {
+overflow: hidden;
+position: relative;
+display: inline-block;
+color: black;
+font-size: 30px;
+}
+
+a::before,
+a::after {
+content: '';
+position: absolute;
+width: 100%;
+left: 0;
+
+}
+a::before {
+background-color: #54b3d6;
+height: 2px;
+bottom: 0;
+transform-origin: 100% 50%;
+transform: scaleX(0);
+transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+a::after {
+content: attr(data-replace);
+height: 100%;
+font-size: 31px;
+top: 0;
+transform-origin: 100% 50%;
+transform: translate3d(200%, 0, 0);
+transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+color: #54b3d6;
+}
+
+a:hover::before {
+transform-origin: 0% 50%;
+transform: scaleX(1);
+}
+a:hover::after {
+transform: translate3d(0, 0, 0);
+}
+
+a span {
+display: inline-block;
+transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover span {
+transform: translate3d(-200%, 0, 0);
+}
+
+
+#crt:before {
+content: " ";
+display: block;
+position: absolute;
+top: 200px;
+left: 440px;
+bottom: 200px;
+right: 440px;
+background: linear-gradient(
+    to bottom,
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+);
+background-size: 100% 8px;
+z-index: 2;
+pointer-events: none;
+}
+@keyframes textShadow {
+0% {
+text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+}
+5% {
+text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+}
+}
+
+.scanline {
+right: 420px;
+width: 50%;
+height: 100px;
+z-index: 8;
+background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 255, 255, 0.2) 10%,
+    rgba(0, 0, 0, 0.1) 100%
+);
+opacity: 0.3;
+position: absolute;
+bottom: 100%;
+animation: scanline 10s linear infinite;
+}
+@keyframes scanline {
+0% {
+    bottom: 80%;
+}
+100% {
+    bottom: 100%;
+}
+100% {
+    bottom: 20%;
+}
+}
+
+#screen {
+position: relative;
+width: 100%;
+height: 67.5vmin;
+border: 30px solid transparent;
+border-image-source: url(./bezel.png);
+border-image-slice: 30 fill;
+border-image-outset: 0;
+overflow: hidden;
 }
