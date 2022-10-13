@@ -1,2 +1,2 @@
 # Mastermind
-![game name](https://imgur.com/0ey3bmS)
+![game name](https://imgur.com/0ey3bmS.jpg)
