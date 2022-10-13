@@ -35,23 +35,28 @@ document.getElementById('Choices').addEventListener('click', handleChoice);
 document.getElementById('rtn').addEventListener('click', handleCheck);
 document.getElementById('plyAgn').addEventListener('click', init);
 document.getElementById('answerGrid').addEventListener('click', updateDiv)
+document.addEventListener('DOMContentLoaded', (e) => {
+    setTimeout(() => {
+        splashEl.classList.add('displayNone');
+    }, 15000);
+})
 
 // /*----- functions -----*/
 init ();
 
+
+    
+
 function init() {
+    endMessage.innerText = document.getElementById("instructions").innerText;
     turn = 1;
     winner = false;
     playerGuess = ['', '', '', ''];
     currentDiv = 0;
     choice = 0;
-    setTimeout(() => {
-        splashEl.classList.add('displayNone');
-    
-    }, 15000);
     getSecretCode();
     render();
-    
+        
 }
 
 function updateDiv(evt) {
@@ -81,8 +86,8 @@ function setNextTurn() {
             let div = document.getElementById(`answer-${idx}`)
             div.innerText= '';
             div.style.color = 'white';
-            playerGuess = ['', '', '', ''];
-        }, 5000);
+            playerGuess = ['', '', '', '']
+          }, 5000);
     }) 
 }
 
@@ -94,12 +99,12 @@ function render() {
 
 function updateDivs() {
     playerGuess.forEach(function(num, idx) {
-        let currentDiv =  document.getElementById(`answer-${idx}`)
-        if (num === '') {
-            currentDiv.innerText = '';
-        } else {
-            currentDiv.innerText = codeOptions[num];
-        }
+    let currentDiv =  document.getElementById(`answer-${idx}`)
+    if (num === '') {
+        currentDiv.innerText = '';
+    } else {
+        currentDiv.innerText = codeOptions[num];
+    }
     });
 }
 
@@ -169,8 +174,8 @@ function renderMessage() {
     if (winner === true) {
         turnPow.innerText = "Power Restored!";
         turnPow.style.css = 'blue';
-        endMessage.innerText = '"Clever Girl!" Great job cracking the code and saving the park. Speaking of, we need a new programmer. Interested?'
     } else if (turn === 1) {
+        endMessage.innerText = document.getElementById('instructions').innerText;
         turnPow.innerText = '99% Power';
         turnPow.style.color = 'blue';
     } else if (turn === 2) {
@@ -185,12 +190,12 @@ function renderMessage() {
         turnPow.innerText = "Shutting Down";
         endMessage.innerText = '"I hate this hacker crap!" Your mother weeps for your intelligence. You could have saved everyone. But, hey, everyone has a bad day every now and then.........This will, uh, probably be your last though';
         renderFade();
-        renderRestart
+        renderRestart()
     }
 }
 
 function renderEndGame() {
-    replayBtn.style.visibility =  winner || turn === 5? 'hidden': 'visible';
+    replayBtn.style.visibility = winner || turn === 5 ? 'visible' : 'hidden'; 
     allAnswers.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
     enterBtn.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
     answerGrid.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
