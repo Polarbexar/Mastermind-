@@ -20,8 +20,8 @@ See if you can save the park!
 
 
 ### Screenshots:
-![game screen](https://imgur.com/db4nZPl.jpg)
-![game intro](https://imgur.com/w1sFbl3.jpg)
+![game screen](https://imgur.com/LXSdKU8.jpg)
+![game intro](https://imgur.com/Xyf21LY.jpg)
 
 ### Credit Due:  
 I knew how I wanted to make the game look but a game dev named **EDWIN** gave tips on how to get a few of the looks i wanted.
