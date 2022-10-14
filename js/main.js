@@ -155,6 +155,7 @@ function renderMessage() {
     } else { (turn === 6) 
         turnCount.innerText = "Shutting Down";
         MessageEl.innerText = '"I hate this hacker crap!" Welp, at least you tried. Everyone has a bad day every once in a while. But this will, uh, probably be your last.';
+        turnCount.style.color = 'red';
         renderFade();
         renderRestart()
     }
