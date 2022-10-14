@@ -14,6 +14,7 @@ let choice;
 let currentDiv;
 let playerGuess;
 let feedbackArray;
+let op;
 
 const turnCount = document.querySelector('h1');
 const enterBtn = document.getElementById('rtn');
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 init ();
 
 function init() {
+    fadeEl.style.opacity = 1;
     turn = 1;
     winner = false;
     playerGuess = ['', '', '', ''];
@@ -49,6 +51,7 @@ function getSecretCode() {
     for (let i=0; i<4; i++){
         secretCode.push(Math.floor(Math.random() * 6));
     }
+    console.log(secretCode)
 }
 
 function updateDiv(evt) {
@@ -133,14 +136,14 @@ function renderMessage() {
     if (winner === true) {
         turnCount.innerText = 'Power Restored!';
         turnCount.style.css = 'blue';
-        MessageEl.innerText = '"Clever Girl!" Congrats on cracking the code and saving the park! On a related note, we need a new programmer. You want the job? We spare no expense.';
+        MessageEl.innerText = '"Clever Girl!" Congrats on cracking the code and saving the park! On a related note, we need a new programmer. You want the job? We spare no expense!';
     } else if (turn === 1) {
         turnCount.innerText = '99% Power';
         turnCount.style.color = 'blue';
         MessageEl.innerText = 'Fences are still on-line';
     } else if (turn === 2) {
         turnCount.innerText = "75% Power";
-        MessageEl.innerText = 'Actually, now theyre not. Must work faster.';
+        MessageEl.innerText = "Actually, now they're not. Must work faster.";
     } else if (turn === 3) {
         turnCount.innerText = "50% Power";
         turnCount.style.color = 'yellow';
@@ -148,10 +151,13 @@ function renderMessage() {
     } else if (turn === 4) {
         turnCount.innerText = "25% Power";
         turnCount.style.color = 'red';
-        MessageEl.innerText = 'Coffee maker is definitely dead. So is Fred. Is that handle turning?';
-    } else { (turn === 5) 
+        MessageEl.innerText = 'Coffee maker is definitely dead. So is Fred. Is that handle turning or is it just in my head?';
+    } else if (turn === 5) {
+        turnCount.innerText = "1%";
+        MessageEl.innerText = "Our lives are in your hands and you've got butterfingers?";
+    } else { (turn === 6) 
         turnCount.innerText = "Shutting Down";
-        MessageEl.innerText = '"I hate this hacker crap!" Welp, at least you tried. Everyone has bad day every once in a while. But this will, uh, probably be your last.';
+        MessageEl.innerText = '"I hate this hacker crap!" Welp, at least you tried. Everyone has a bad day every once in a while. But this will, uh, probably be your last.';
         renderFade();
         renderRestart()
     }
@@ -162,7 +168,7 @@ function renderFade() {
     var timer = setInterval(function () {
         if (op <= 0.1){
             clearInterval(timer);
-            fadeEl.style.display = 'none';
+            fadeEl.style.opacity = -1;
         }
         fadeEl.style.opacity = op;
         fadeEl.style.filter = 'alpha(opacity=' + op * 100 + ")";
@@ -174,10 +180,11 @@ function renderRestart() {
     setTimeout(() => {
         replayBtn.style.visibility = 'visible';
     }, 12000);
+    replayBtn.style.opacity = 1;
 } 
 
 function renderEndGame() {
-    replayBtn.style.visibility = winner || turn === 5 ? 'visible' : 'hidden'; 
+    replayBtn.style.visibility = winner ? 'visible' : 'hidden'; 
     allChoices.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
     enterBtn.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
     answerGrid.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';

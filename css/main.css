@@ -8,7 +8,13 @@
     flex-direction: row;
     justify-content: center;
     text-align: center;
-    font-size: 30px; 
+    font-size: 40px; 
+    line-height: 25px;
+}
+
+.playSplash {
+    position: fixed;
+    z-index: 6;
 }
 
 body {
@@ -66,7 +72,6 @@ h1 {
 }
 
 .splash.displayNone {
-    z-index: 8;
     position: fixed;
     height: 100vh;
     width: 100%;
@@ -147,9 +152,9 @@ h1 {
 }
 
 #rtn {
-margin-top: 30px;
-border: 2px solid white; 
-font-size: 15px;
+    margin-top: 30px;
+    border: 2px solid white; 
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.8);
     background: gray;
     padding: 15px 40px;
@@ -165,14 +170,15 @@ box-shadow: 0 5px 15px white;
 }
 
 #plyAgn {
-margin-top: 60px;
-visibility: hidden;
-z-index: 9;
 justify-content: center;
 align-items: center;
 text-align: center;
 position: relative;
-display: flex
+display: flex;
+height: 40px;
+width: 100px;
+font-family: 'VT323';
+font-size: 20px;
 } 
 
 h4 {
