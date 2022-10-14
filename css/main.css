@@ -1,6 +1,16 @@
 * {
     box-sizing: border-box;
 }
+#inspiration {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    font-size: 30px; 
+}
+
 body {
     height: 100vh;
     width: 100%;
@@ -9,8 +19,9 @@ body {
     align-items: center;
     background-color: black;
 }
+
 #compscreen > *{
-    background-color: #01411C;
+    background-color: #05321e;
     color: white;
     width: 1000px;
     height: 700px;
@@ -27,11 +38,12 @@ body {
     margin-left: 80px;
     z-index: 3;
     position: relative;
-    /* visibility: hidden; */
 }
+
 h3 {
     text-align: right;
     margin: 0;
+    font-size: 20px;
 }
 
 h1 {
@@ -41,6 +53,7 @@ h1 {
     font-weight: 900;
     line-height: 5vh;
 }
+
 .splash {
     z-index: 8;
     position: fixed;
@@ -51,6 +64,7 @@ h1 {
     left: 0;
     text-align: center;
 }
+
 .splash.displayNone {
     z-index: 8;
     position: fixed;
@@ -63,11 +77,17 @@ h1 {
     opacity: 0;
     z-index: -10
 }
+
 #title {
     font-family: 'bungee shade';
     font-size: 15vmin;
     line-height: 20vh;
     color: #FFD700;
+}
+
+#story {
+    margin: auto;
+    font-size: 30px;
 }
 
 @keyframes fadeIn{
@@ -80,14 +100,15 @@ h1 {
     opacity: 0;
     animation: fadeIn 7s ease-in forwards; 
 }
+
 .pfade-in {
     opacity: 0;
     animation: fadeIn 13s ease-in forwards; 
 }
 
-#story {
-    margin: auto;
-    font-size: 30px;
+.insfade-in {
+    opacity: 0;
+    animation: fadeIn 15s ease-in forwards;
 }
 
 #Choices > button {
@@ -98,12 +119,13 @@ h1 {
     background-color: white;
     border: 5px solid black;
     color: black;
-margin-top: 4px;
+    margin-top: 4px;
     
 }
 #answerGrid {
     height: 130px;
 }
+
 #answerGrid > div {
     border: 2px solid red;
     display: inline-flex;
@@ -116,13 +138,14 @@ margin-top: 4px;
     justify-content: center;
     transform: scale(0.7);
     position: relative;
-    /* visibility: hidden; */
 }
+
 #answerGrid > div:hover {
     background-color: darkgrey;
     color: white;
     z-index: 8;
 }
+
 #rtn {
 margin-top: 30px;
 border: 2px solid white; 
@@ -134,19 +157,27 @@ font-size: 15px;
     font-weight: normal;
     text-transform: uppercase;
     transition: all 0.2s ease-in-out;
-  }
-  .glow-button:hover {
-    color: rgba(255, 255, 255, 1);
-    box-shadow: 0 5px 15px white;
-  }
+}
+
+.glow-button:hover {
+color: rgba(255, 255, 255, 1);
+box-shadow: 0 5px 15px white;
+}
+
 #plyAgn {
 margin-top: 60px;
 visibility: hidden;
 z-index: 9;
+justify-content: center;
+align-items: center;
+text-align: center;
+position: relative;
+display: flex
 } 
 
 h4 {
     font-size: 22px;
+    color: white;
 }
 
 #green {
@@ -158,20 +189,19 @@ h4 {
 }
 
 #black {
-    color: black;
+    color: gray;
 }
 p {
     color: white;
-    visibility: visible;
-    margin-left: 600px;
+    visibility: visible;css
 }
 
-/* /* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 a {
 overflow: hidden;
 position: relative;
 display: inline-block;
 }
+
 a {
 overflow: hidden;
 position: relative;
@@ -186,8 +216,8 @@ content: '';
 position: absolute;
 width: 100%;
 left: 0;
-
 }
+
 a::before {
 background-color: #54b3d6;
 height: 2px;
@@ -196,6 +226,7 @@ transform-origin: 100% 50%;
 transform: scaleX(0);
 transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
 }
+
 a::after {
 content: attr(data-replace);
 height: 100%;
@@ -211,6 +242,7 @@ a:hover::before {
 transform-origin: 0% 50%;
 transform: scaleX(1);
 }
+
 a:hover::after {
 transform: translate3d(0, 0, 0);
 }
@@ -224,12 +256,10 @@ a:hover span {
 transform: translate3d(-200%, 0, 0);
 }
 
-
 #crt:before {
 content: " ";
 display: block;
 position: absolute;
-/* 200 440 */
 top: 0px;
 left: 0px;
 bottom: 0px;
@@ -243,6 +273,7 @@ background-size: 100% 8px;
 z-index: 2;
 pointer-events: none;
 }
+
 @keyframes textShadow {
 0% {
 text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
@@ -268,6 +299,7 @@ position: absolute;
 bottom: 100%;
 animation: scanline 10s linear infinite;
 }
+
 @keyframes scanline {
 0% {
     bottom: 100%;
@@ -279,14 +311,3 @@ animation: scanline 10s linear infinite;
     bottom: 0%;
 }
 }
-/* 
-#screen {
-position: relative;
-width: 100%;
-height: 67.5vmin;
-border: 30px solid transparent;
-border-image-source: url(/img/bezel_gray.png);
-border-image-slice: 30 fill;
-border-image-outset: 0;
-overflow: hidden;
-} */
