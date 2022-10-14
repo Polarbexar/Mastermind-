@@ -10,11 +10,9 @@ codeOptions = {
 let turn;
 let winner; 
 let secretCode;
-let choice;
 let currentDiv;
 let playerGuess;
 let feedbackArray;
-let op;
 
 const turnCount = document.querySelector('h1');
 const enterBtn = document.getElementById('rtn');
@@ -51,7 +49,6 @@ function getSecretCode() {
     for (let i=0; i<4; i++){
         secretCode.push(Math.floor(Math.random() * 6));
     }
-    console.log(secretCode)
 }
 
 function updateDiv(evt) {
@@ -123,12 +120,12 @@ function render() {
 
 function updateDivs() {
     playerGuess.forEach(function(num, idx) {
-    let currentDiv =  document.getElementById(`answer-${idx}`)
-    if (num === '') {
-        currentDiv.innerText = '';
-    } else {
-        currentDiv.innerText = codeOptions[num];
-    }
+        let currentDiv =  document.getElementById(`answer-${idx}`)
+        if (num === '') {
+            currentDiv.innerText = '';
+        } else {
+            currentDiv.innerText = codeOptions[num];
+        }
     });
 }
 
@@ -164,8 +161,8 @@ function renderMessage() {
 }
 
 function renderFade() {
-    var op = 1;  
-    var timer = setInterval(function () {
+    let op = 1;  
+    let timer = setInterval(function () {
         if (op <= 0.1){
             clearInterval(timer);
             fadeEl.style.opacity = -1;

@@ -1,16 +1,6 @@
 * {
     box-sizing: border-box;
 }
-#inspiration {
-    display: flex;
-    align-items: flex-end;
-    position: relative;
-    flex-direction: row;
-    justify-content: center;
-    text-align: center;
-    font-size: 40px; 
-    line-height: 25px;
-}
 
 .playSplash {
     position: fixed;
@@ -46,18 +36,36 @@ body {
     position: relative;
 }
 
-h3 {
-    text-align: right;
-    margin: 0;
-    font-size: 20px;
-}
-
 h1 {
     font-size: 100px;
     margin: 0;
     margin-bottom: 60px;
     font-weight: 900;
     line-height: 5vh;
+}
+
+h3 {
+    text-align: right;
+    margin: 0;
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 22px;
+    color: white;
+    margin-top: 90px;
+}
+
+#green {
+    color: green;
+}
+
+#yellow {
+    color: yellow;
+}
+
+#black {
+    color: gray;
 }
 
 .splash {
@@ -116,17 +124,6 @@ h1 {
     animation: fadeIn 15s ease-in forwards;
 }
 
-#Choices > button {
-    font-size: 25px;
-    font-family: 'VT323';
-    z-index: 9;
-    height: 40px;
-    background-color: white;
-    border: 5px solid black;
-    color: black;
-    margin-top: 4px;
-    
-}
 #answerGrid {
     height: 130px;
 }
@@ -137,11 +134,10 @@ h1 {
     width: 190px;
     height: 55px; 
     font-size: 25px;
-    margin: 5px 5px 5px 5px;
+    margin: 10px 5px 0px 5px;
     text-align: center;
     margin-bottom: 40px;
     justify-content: center;
-    transform: scale(0.7);
     position: relative;
 }
 
@@ -149,6 +145,33 @@ h1 {
     background-color: darkgrey;
     color: white;
     z-index: 8;
+}
+
+#Choices > button {
+    font-size: 25px;
+    font-family: 'VT323';
+    z-index: 9;
+    height: 40px;
+    background-color: white;
+    border: 5px solid black;
+    color: black;
+    margin-top: 4px;
+}
+
+#Choices > button:hover {
+    background-color: gray;
+    color: white;
+}
+
+#inspiration {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    font-size: 40px; 
+    line-height: 25px;
 }
 
 #rtn {
@@ -165,155 +188,139 @@ h1 {
 }
 
 .glow-button:hover {
-color: rgba(255, 255, 255, 1);
-box-shadow: 0 5px 15px white;
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px white;
 }
 
 #plyAgn {
-justify-content: center;
-align-items: center;
-text-align: center;
-position: relative;
-display: flex;
-height: 40px;
-width: 100px;
-font-family: 'VT323';
-font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    display: flex;
+    height: 40px;
+    width: 100px;
+    font-family: 'VT323';
+    font-size: 20px;
 } 
 
-h4 {
-    font-size: 22px;
-    color: white;
-}
-
-#green {
-    color: green;
-}
-
-#yellow {
-    color: yellow;
-}
-
-#black {
-    color: gray;
-}
 p {
     color: white;
     visibility: visible;
 }
 
 a {
-overflow: hidden;
-position: relative;
-display: inline-block;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
 }
 
 a {
-overflow: hidden;
-position: relative;
-display: inline-block;
-color: black;
-font-size: 30px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    color: black;
+    font-size: 30px;
 }
 
 a::before,
 a::after {
-content: '';
-position: absolute;
-width: 100%;
-left: 0;
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
 }
 
 a::before {
-background-color: #54b3d6;
-height: 2px;
-bottom: 0;
-transform-origin: 100% 50%;
-transform: scaleX(0);
-transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    background-color: #54b3d6;
+    height: 2px;
+    bottom: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 a::after {
-content: attr(data-replace);
-height: 100%;
-font-size: 31px;
-top: 0;
-transform-origin: 100% 50%;
-transform: translate3d(200%, 0, 0);
-transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
-color: #54b3d6;
+    content: attr(data-replace);
+    height: 100%;
+    font-size: 31px;
+    top: 0;
+    transform-origin: 100% 50%;
+    transform: translate3d(200%, 0, 0);
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    color: #54b3d6;
 }
 
 a:hover::before {
-transform-origin: 0% 50%;
-transform: scaleX(1);
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
 }
 
 a:hover::after {
-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 a span {
-display: inline-block;
-transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
+    display: inline-block;
+    transition: transform .3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 a:hover span {
-transform: translate3d(-200%, 0, 0);
+    transform: translate3d(-200%, 0, 0);
 }
 
 #crt:before {
-content: " ";
-display: block;
-position: absolute;
-top: 0px;
-left: 0px;
-bottom: 0px;
-right: 0px;
-background: linear-gradient(
-    to bottom,
-    rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.25) 50%
-);
-background-size: 100% 8px;
-z-index: 2;
-pointer-events: none;
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 8px;
+    z-index: 2;
+    pointer-events: none;
 }
 
 @keyframes textShadow {
-0% {
-text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-}
-5% {
-text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
-}
+    0% {
+    text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
+    5% {
+    text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+    }
 }
 
 .scanline {
-right: 10px;
-width: 100%;
-height: 100px;
-z-index: 0;
-background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(255, 255, 255, 0.2) 10%,
-    rgba(0, 0, 0, 0.1) 100%
-);
-opacity: 0.3;
-position: absolute;
-bottom: 100%;
-animation: scanline 10s linear infinite;
+    right: 10px;
+    width: 100%;
+    height: 100px;
+    z-index: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(255, 255, 255, 0.2) 10%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    opacity: 0.3;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 10s linear infinite;
 }
 
 @keyframes scanline {
-0% {
-    bottom: 100%;
-}
-80% {
-    bottom: 100%;
-}
-100% {
-    bottom: 0%;
-}
+    0% {
+        bottom: 100%;
+    }
+    80% {
+        bottom: 100%;
+    }
+    100% {
+        bottom: 0%;
+    }
 }
