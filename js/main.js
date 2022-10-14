@@ -182,7 +182,7 @@ function renderRestart() {
 
 function renderEndGame() {
     replayBtn.style.visibility = winner ? 'visible' : 'hidden'; 
-    allChoices.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
-    enterBtn.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
-    answerGrid.style.visibility = turn == 5 || winner ? 'hidden' : 'visible';
+    allChoices.style.visibility = turn == 6 || winner ? 'hidden' : 'visible';
+    enterBtn.style.visibility = turn == 6 || winner ? 'hidden' : 'visible';
+    answerGrid.style.visibility = turn == 6 || winner ? 'hidden' : 'visible';
 }
